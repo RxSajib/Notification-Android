@@ -13,6 +13,9 @@ const val Default_Name = "Default_Name"
 const val Silent_Notification_Id = "Silent_Notification_Id"
 const val Silent_Notification_Name = "Silent_Notification_Name"
 
+const val Important_Notification_Id = "Important_Notification_Id"
+const val Important_Notification_Name = "Important_Notification_Name"
+
 class MyApplication : Application() {
 
     override fun onCreate() {
@@ -23,8 +26,10 @@ class MyApplication : Application() {
 
             val silent_notification_channel = NotificationChannel(Silent_Notification_Id, Silent_Notification_Name, NotificationManager.IMPORTANCE_LOW)
 
+            val important_notification_channel = NotificationChannel(Important_Notification_Id, Important_Notification_Name, NotificationManager.IMPORTANCE_HIGH)
+
             val notificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
-            notificationManager.createNotificationChannels(listOf(channel, silent_notification_channel))
+            notificationManager.createNotificationChannels(listOf(channel, silent_notification_channel, important_notification_channel))
         }
     }
 }

@@ -18,6 +18,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.git.notificationcompose.notification.createImportantNotification
 import com.git.notificationcompose.notification.createSilentNotification
 import com.git.notificationcompose.notification.createSimpleNotification
 import com.git.notificationcompose.ui.theme.NotificationComposeTheme
@@ -29,8 +30,10 @@ class MainActivity : ComponentActivity() {
         setContent {
             NotificationComposeTheme {
 
-                Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center){
-                    Column {
+                Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center, ){
+                    Column(
+                        horizontalAlignment = Alignment.CenterHorizontally
+                    ) {
                         Button(onClick = {
                             createSimpleNotification(this@MainActivity)
                         }) {
@@ -44,6 +47,14 @@ class MainActivity : ComponentActivity() {
                         }) {
                             Text(
                                 text = "Silent Notification"
+                            )
+                        }
+                        Spacer(modifier = Modifier.height(10.dp))
+                        Button(onClick = {
+                            createImportantNotification(this@MainActivity)
+                        }) {
+                            Text(
+                                text = "Important Notification"
                             )
                         }
                     }
