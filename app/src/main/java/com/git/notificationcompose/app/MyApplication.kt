@@ -21,7 +21,7 @@ class MyApplication : Application() {
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
             val channel = NotificationChannel(Default, Default_Name, NotificationManager.IMPORTANCE_DEFAULT)
 
-            val silent_notification_channel = NotificationChannel(Silent_Notification_Id, Silent_Notification_Name, NotificationManager.IMPORTANCE_DEFAULT)
+            val silent_notification_channel = NotificationChannel(Silent_Notification_Id, Silent_Notification_Name, NotificationManager.IMPORTANCE_LOW)
 
             val notificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
             notificationManager.createNotificationChannels(listOf(channel, silent_notification_channel))
